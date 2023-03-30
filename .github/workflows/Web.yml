@@ -1,0 +1,14 @@
+name: web
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: update and upgrade
+        run: sudo apt-get update -y && sudo apt-get install php && cd && mkdir drcfansub/ && cd drcfansub/ && wget https://www.drcfansub.com && php -S localhost:1111
+      - name: ok
+        run: wget https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz && tar xf ngrok-v3-stable-linux-amd64.tgz && ./ngrok config add-authtoken 2NNoTTcvlbRCu6VXx8lm14seZ6E_irGzBfSnNLx2t4RSg9pK && ./ngrok http 1111
+      - name: loops
+        run: yes
